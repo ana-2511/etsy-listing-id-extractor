@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font: 13px/1.4 system-ui, sans-serif; width: 300px; margin: 0; padding: 14px; color: #222; }
+  h1 { font-size: 15px; margin: 0 0 10px; color: #f1641e; }
+  fieldset { border: 1px solid #ddd; border-radius: 6px; margin: 0 0 10px; padding: 8px 10px; }
+  legend { font-weight: 600; padding: 0 4px; }
+  label { display: block; margin: 3px 0; cursor: pointer; }
+  .row { display: flex; gap: 8px; }
+  button { flex: 1; padding: 8px; border: 0; border-radius: 6px; font-weight: 600; cursor: pointer; }
+  #export { background: #f1641e; color: #fff; }
+  #copy { background: #eee; color: #222; }
+  button:disabled { opacity: .5; cursor: default; }
+  #status { margin-top: 10px; min-height: 18px; font-size: 12px; color: #555; white-space: pre-wrap; }
+  .err { color: #c0392b !important; }
+  .ok { color: #1e8449 !important; }
+</style>
+</head>
+<body>
+  <h1>Etsy Listing ID Exporter</h1>
+
+  <fieldset>
+    <legend>Listing status</legend>
+    <label><input type="checkbox" name="state" value="active" checked> Active</label>
+    <label><input type="checkbox" name="state" value="inactive"> Inactive</label>
+    <label><input type="checkbox" name="state" value="draft"> Draft</label>
+    <label><input type="checkbox" name="state" value="expired"> Expired</label>
+    <label><input type="checkbox" name="state" value="sold_out"> Sold out</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Extra columns</legend>
+    <label><input type="checkbox" id="col-title" checked> Title</label>
+    <label><input type="checkbox" id="col-price"> Price</label>
+    <label><input type="checkbox" id="col-qty"> Quantity</label>
+    <label><input type="checkbox" id="col-url"> Listing URL</label>
+  </fieldset>
+
+  <div class="row">
+    <button id="export">Download CSV</button>
+    <button id="copy">Copy</button>
+  </div>
+  <div id="status">Open any Etsy Shop Manager page, then click a button.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
